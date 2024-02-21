@@ -1,0 +1,17 @@
+name: Clone Repo and push a file
+
+on: 
+  push:
+    branches: main
+  workflow_dispatch:
+
+jobs:
+  Clone_GitHub_Repo:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          git clone https://github.com/manthanjgodhasara/Auction-Hub.git
+          echo "Clone GitHub Repo"
+      - run: |
+          ls
+      
