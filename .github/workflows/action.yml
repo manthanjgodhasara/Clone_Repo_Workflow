@@ -22,6 +22,7 @@ jobs:
           cp ./Clone_Repo_Workflow/Clone_Repo_Workflow/sample.txt Smile-Face
           cd ./Smile-Face
           ls
+          git status
       - name: Checkout to another branch
         run : git checkout -b "new-file-branch"
       - name: Push files
