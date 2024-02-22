@@ -17,12 +17,13 @@ jobs:
           cd ../../
           pwd
           git clone https://github.com/manthanjgodhasara/Smile-Face.git
+          cp ./Clone_Repo_Workflow/Clone_Repo_Workflow/sample.txt Smile-Face
           cd ./Smile-Face
           ls
       # - name: Checkout to another branch
       #   run : git checkout -b "new-file-branch"
       # - name: Copy file from current repo to another repo
-      #   run: cp sample.txt Smile-Face
+      #   run: cp ./Clone_Repo_Workflow/Clone_Repo_Workflow/sample.txt Smile-Face
       # - name: Push files
       #   run: |
       #     git add .
