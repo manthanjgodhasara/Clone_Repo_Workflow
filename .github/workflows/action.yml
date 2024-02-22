@@ -21,7 +21,7 @@ jobs:
         run : git checkout -b "new-file-branch"
       - name: Copy file from current repo to another repo
         run: |
-          cp ./Clone_Repo_Workflow/Clone_Repo_Workflow/sample.txt Smile-Face
+          cp ./Clone_Repo_Workflow/sample.txt Smile-Face
           cd ./Smile-Face
           ls
       - name: Push files
