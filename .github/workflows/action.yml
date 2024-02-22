@@ -14,6 +14,7 @@ jobs:
       - name: Clone GitHub Repo
         run: |
           pwd
+          ls
           cd ../../
           pwd
           git clone https://github.com/manthanjgodhasara/Smile-Face.git
