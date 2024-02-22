@@ -17,13 +17,14 @@ jobs:
           cd ../../
           pwd
           git clone https://github.com/manthanjgodhasara/Smile-Face.git
-      - name: Checkout to another branch
-        run : git checkout -b "new-file-branch"
+          ls
       - name: Copy file from current repo to another repo
         run: |
-          cp ./Clone_Repo_Workflow/sample.txt Smile-Face
+          cp ./Clone_Repo_Workflow/Clone_Repo_Workflow/sample.txt Smile-Face
           cd ./Smile-Face
           ls
+      - name: Checkout to another branch
+        run : git checkout -b "new-file-branch"
       - name: Push files
         run: |
           git config --global user.email "manthanjgodhasara160901@gmail.com"
