@@ -14,7 +14,7 @@ jobs:
       - name: Clone GitHub Repo
         run: |
           git clone https://github.com/manthanjgodhasara/Smile-Face.git
-          cp ./Clone_Repo_Workflow/Clone_Repo_Workflow/sample.txt Smile-Face
+          cp ./Clone_Repo_Workflow/sample.txt Smile-Face
           cd ./Smile-Face
           git status
           git checkout -b "new-file-branch"
