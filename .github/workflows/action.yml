@@ -21,7 +21,7 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         run: |          
           cd ../../
-          git clone https://github.com/manthanjgodhasara/Smile-Face.git
+          git clone https://manthanjgodhasara:${{ secrets.ACCESS_TOKEN }}@github.com/manthanjgodhasara/Smile-Face.git
           cp ./Clone_Repo_Workflow/Clone_Repo_Workflow/sample.txt ./Smile-Face
           cd ./Smile-Face
           ls
