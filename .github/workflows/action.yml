@@ -23,14 +23,18 @@ jobs:
           cd ./Smile-Face
           ls
           git status
-      - name: Checkout to another branch
-        run : git checkout -b "new-file-branch"
-      - name: Push files
-        run: |
+          git checkout -b "new-file-branch"
           git config --global user.email "manthanjgodhasara160901@gmail.com"
           git config --global user.name "manthanjgodhasara"
           git config --global user.password "Manthan#16"
-          git status
           git add .
+          git status
           git commit -m "Added files"
           git push --set-upstream origin new-file-branch
+      # - name: Checkout to another branch
+      #   run : 
+      # - name: Push files
+      #   run: |
+          
+      #     git status
+          
