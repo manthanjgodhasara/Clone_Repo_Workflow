@@ -16,7 +16,7 @@ jobs:
           cat sample.txt
           git clone https://github.com/manthanjgodhasara/Smile-Face.git
           ls
-      # - name: Checkout to another branch
-      #   run : git checkout -b "new-file-branch"
-      # - name: Copy file from current repo to another repo
-      #   run: cp 
+      - name: Checkout to another branch
+        run : git checkout -b "new-file-branch"
+      - name: Copy file from current repo to another repo
+        run: cp sample.txt Smile-Face
