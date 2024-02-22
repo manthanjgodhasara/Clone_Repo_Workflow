@@ -20,3 +20,8 @@ jobs:
         run : git checkout -b "new-file-branch"
       - name: Copy file from current repo to another repo
         run: cp sample.txt Smile-Face
+      - name: Push files
+        run: |
+          git add .
+          git commit -m "Added files"
+          git push --set-upstream origin new-file-branch
