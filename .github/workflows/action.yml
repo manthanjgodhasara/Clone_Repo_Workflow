@@ -13,15 +13,14 @@ jobs:
         uses: actions/checkout@v2
       - name: Clone GitHub Repo
         run: |
-          cat sample.txt
-          git clone https://github.com/manthanjgodhasara/Smile-Face.git
-          ls
-      - name: Checkout to another branch
-        run : git checkout -b "new-file-branch"
-      - name: Copy file from current repo to another repo
-        run: cp sample.txt Smile-Face
-      - name: Push files
-        run: |
-          git add .
-          git commit -m "Added files"
-          git push --set-upstream origin new-file-branch
+          pwd
+      #     git clone https://github.com/manthanjgodhasara/Smile-Face.git
+      # - name: Checkout to another branch
+      #   run : git checkout -b "new-file-branch"
+      # - name: Copy file from current repo to another repo
+      #   run: cp sample.txt Smile-Face
+      # - name: Push files
+      #   run: |
+      #     git add .
+      #     git commit -m "Added files"
+      #     git push --set-upstream origin new-file-branch
