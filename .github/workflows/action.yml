@@ -24,8 +24,8 @@ jobs:
           ls
           git status
           git checkout -b "new-file-branch"
-          git config --global user.email "manthanjgodhasara160901@gmail.com"
           git config --global user.name "Manthan Godhasara"
+          git config --global user.email "manthanjgodhasara160901@gmail.com"
           git add .
           git status
           git commit -m "Added files"
