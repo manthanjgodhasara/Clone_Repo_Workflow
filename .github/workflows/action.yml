@@ -16,8 +16,9 @@ jobs:
           pwd
           cd ../../
           pwd
-          cat ./Clone_Repo_Workflow/Clone_Repo_Workflow/sample.txt
-      #     git clone https://github.com/manthanjgodhasara/Smile-Face.git
+          git clone https://github.com/manthanjgodhasara/Smile-Face.git
+          cd ./Smile-Face/Smile-Face
+          ls
       # - name: Checkout to another branch
       #   run : git checkout -b "new-file-branch"
       # - name: Copy file from current repo to another repo
