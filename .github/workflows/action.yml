@@ -14,6 +14,9 @@ jobs:
       - name: Clone GitHub Repo
         run: |
           pwd
+          cd ../../
+          pwd
+          cat ./Clone_Repo_Workflow/Clone_Repo_Workflow/sample.txt
       #     git clone https://github.com/manthanjgodhasara/Smile-Face.git
       # - name: Checkout to another branch
       #   run : git checkout -b "new-file-branch"
