@@ -26,6 +26,8 @@ jobs:
       #   run: cp ./Clone_Repo_Workflow/Clone_Repo_Workflow/sample.txt Smile-Face
       - name: Push files
         run: |
+          git config --global user.email "manthanjgodhasara160901.com"
+          git config --global user.name "manthanjgodhasara"
           git add .
           git commit -m "Added files"
           git push --set-upstream origin new-file-branch
