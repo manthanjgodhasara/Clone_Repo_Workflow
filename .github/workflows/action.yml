@@ -9,9 +9,15 @@ jobs:
   Clone_GitHub_Repo:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          git clone https://github.com/manthanjgodhasara/Auction-Hub.git
-          echo "Clone GitHub Repo"
-      - run: |
+      - name: Checkout current repo
+        run: |
+          actions/checkout@v2
+          cat sample.txt
+      - name: Clone GitHub Repo
+        run: |
+          git clone https://github.com/manthanjgodhasara/Smile-Face.git
           ls
-      
+      # - name: Checkout to another branch
+      #   run : git checkout -b "new-file-branch"
+      # - name: Copy file from current repo to another repo
+      #   run: cp 
