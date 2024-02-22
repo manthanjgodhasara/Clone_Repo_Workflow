@@ -10,11 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout current repo
-        run: |
-          actions/checkout@v2
-          cat sample.txt
+        uses: actions/checkout@v2
       - name: Clone GitHub Repo
         run: |
+          cat sample.txt
           git clone https://github.com/manthanjgodhasara/Smile-Face.git
           ls
       # - name: Checkout to another branch
