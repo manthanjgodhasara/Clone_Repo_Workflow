@@ -17,7 +17,7 @@ jobs:
           cd ../../
           pwd
           git clone https://github.com/manthanjgodhasara/Smile-Face.git
-          cd ./Smile-Face/Smile-Face
+          cd ./Smile-Face
           ls
       # - name: Checkout to another branch
       #   run : git checkout -b "new-file-branch"
