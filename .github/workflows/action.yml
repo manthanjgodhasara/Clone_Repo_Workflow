@@ -16,7 +16,7 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         run: |
           git config --global user.email "manthanjgodhasara160901@gmail.com"
-          git config --global user.name "Manthan Godhasara"
+          git config --global user.name "manthanjgodhasara"
           cd ../../
           git clone https://github.com/manthanjgodhasara/Smile-Face.git
           cp ./Clone_Repo_Workflow/Clone_Repo_Workflow/sample.txt ./Smile-Face
