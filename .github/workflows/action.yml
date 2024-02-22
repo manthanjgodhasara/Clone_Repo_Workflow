@@ -7,15 +7,17 @@ on:
 
 jobs:
   Clone_GitHub_Repo:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout current repo
         uses: actions/checkout@v4
       - name: Clone GitHub Repo
         run: |
           git clone https://github.com/manthanjgodhasara/Smile-Face.git
-          cp ./Clone_Repo_Workflow/sample.txt Smile-Face
+          pwd
+          cp ./Clone_Repo_Workflow/Clone_Repo_Workflow/sample.txt ./Smile-Face
           cd ./Smile-Face
+          ls
           git status
           git checkout -b "new-file-branch"
           git config --global user.name "manthanjgodhasara"
