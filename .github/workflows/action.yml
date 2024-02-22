@@ -7,10 +7,10 @@ on:
 
 jobs:
   Clone_GitHub_Repo:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - name: Checkout current repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Clone GitHub Repo
         run: |
           git clone https://github.com/manthanjgodhasara/Smile-Face.git
