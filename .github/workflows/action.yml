@@ -9,12 +9,11 @@ jobs:
   Clone_GitHub_Repo:
     runs-on: ubuntu-latest
     steps:
-      - uses: manthanjgodhasara/gha-git-credentials@v2-latest
-        with:
-          token: '${{ secrets.GITHUB_TOKEN }}'
       - name: Checkout current repo
         uses: actions/checkout@v4
       - name: Clone GitHub Repo
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         run: |
           cd ../../
           git clone https://github.com/manthanjgodhasara/Smile-Face.git
