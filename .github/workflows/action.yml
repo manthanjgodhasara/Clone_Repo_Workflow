@@ -42,7 +42,7 @@ jobs:
       - name: Loop json file
         run: |
           ls
-          cat repos.json
           JSON_CONTENT=$(cat repos.json)
-          names=$(echo "$json" | jq -r '.[].repo')
+          echo "$JSON_CONTENT"
+          names=$(echo "$JSON_CONTENT" | jq -r '.[].repo')
           echo "$names"
