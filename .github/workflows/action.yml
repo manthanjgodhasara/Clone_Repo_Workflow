@@ -41,7 +41,7 @@ jobs:
       #     -d '{"title":"Adding sample.txt file","body":"Added a file. Please accept","head":"new-file-branch","base":"master"}'
       - name: Loop json file
         run: |
-          pwd
+          ls
           JSON_CONTENT=$(cat repos.json)
           names=$(echo "$json" | jq -r '.[].repo')
           echo "$names"
