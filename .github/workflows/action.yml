@@ -46,3 +46,6 @@ jobs:
           echo "$JSON_CONTENT"
           names=$(echo "$JSON_CONTENT" | jq -r '.[].repo')
           echo "$names"
+          for repo_name in $names; do
+          echo "Performing task for repository: $repo_name"
+          done
