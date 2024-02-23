@@ -44,6 +44,5 @@ jobs:
       - name: Loop json file
         run: |
           JSON_CONTENT=$(cat repos.json)
-          echo "$json" | jq -c '.[]' | while IFS= read -r item; do
-          echo "Processing item: $item"
-          done
+          names=$(echo "$json" | jq -r '.[].repo')
+          echo "$names"
