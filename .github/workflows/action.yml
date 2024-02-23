@@ -44,13 +44,6 @@ jobs:
       - name: Loop json file
         run: |
           JSON_CONTENT=$(cat repos.json)
-          
-          # Parse JSON content and iterate over it using jq
-          for item in $(echo "${JSON_CONTENT}" | jq -r '.[] | @base64'); do
-            _jq() {
-              echo ${item} | base64 --decode | jq -r ${1}
-            }
-            
-            # Extract data from JSON object and perform task
-            # Example: echo "Name: $(_jq '.name')"
+          echo "$json" | jq -c '.[]' | while IFS= read -r item; do
+          echo "Processing item: $item"
           done
