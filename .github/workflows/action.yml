@@ -50,7 +50,7 @@ jobs:
           git checkout -b "new-file-branch2"
           git add .
           git commit -m "Added files"
-          git push --set-upstream origin new-file-branch
+          git push --set-upstream origin new-file-branch2
 
           curl -L \
           -X POST \
@@ -58,7 +58,7 @@ jobs:
           -H "Authorization: Bearer ${{secrets.ACCESS_TOKEN}}" \
           -H "X-GitHub-Api-Version: 2022-11-28" \
           https://api.github.com/repos/manthanjgodhasara/$repo_name/pulls \
-          -d '{"title":"Adding sample.txt file","body":"Added a file. Please accept","head":"new-file-branch","base":"main"}'
+          -d '{"title":"Adding sample.txt file","body":"Added a file. Please accept","head":"new-file-branch2","base":"main"}'
           
           cd ..
           done
