@@ -39,8 +39,10 @@ jobs:
           JSON_CONTENT=$(cat repos.json)
           names=$(echo "$JSON_CONTENT" | jq -r '.[].repo')
           echo "$names"
+          IFS=$'\n'
           for repo_name in $names; do
-          
+
+          echo $repo_name
           cd ../../
           git clone https://manthanjgodhasara:${{ secrets.ACCESS_TOKEN }}@github.com/manthanjgodhasara/$repo_name.git
           cp ./Clone_Repo_Workflow/Clone_Repo_Workflow/sample.txt ./$repo_name
