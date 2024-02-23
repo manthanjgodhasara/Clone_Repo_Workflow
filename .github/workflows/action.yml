@@ -42,6 +42,7 @@ jobs:
       - name: Loop json file
         run: |
           ls
-          JSON_CONTENT=$(cat /home/runner/work/Clone_Repo_Workflow/Clone_Repo_Workflow/repos.json)
+          cat repos.json
+          JSON_CONTENT=$(cat repos.json)
           names=$(echo "$json" | jq -r '.[].repo')
           echo "$names"
