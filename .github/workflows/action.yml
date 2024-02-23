@@ -1,4 +1,4 @@
-name: Clone Repo and push a file
+name: Clone Repos, push a file and create a PR
 
 on: 
   push:
@@ -15,26 +15,7 @@ jobs:
         run: |
           git config --global user.email "manthanjgodhasara160901@gmail.com"
           git config --global user.name "manthanjgodhasara"
-      # - name: Clone GitHub Repo
-      #   run: |          
-      #     cd ../../
-      #     git clone https://manthanjgodhasara:${{ secrets.ACCESS_TOKEN }}@github.com/manthanjgodhasara/Smile-Face.git
-      #     cp ./Clone_Repo_Workflow/Clone_Repo_Workflow/sample.txt ./Smile-Face
-      #     cd ./Smile-Face
-      #     git checkout -b "new-file-branch"
-      #     git add .
-      #     git commit -m "Added files"
-      #     git push --set-upstream origin new-file-branch
-      # - name: Create a PR
-      #   run: |
-      #     curl -L \
-      #     -X POST \
-      #     -H "Accept: application/vnd.github+json" \
-      #     -H "Authorization: Bearer ${{secrets.ACCESS_TOKEN}}" \
-      #     -H "X-GitHub-Api-Version: 2022-11-28" \
-      #     https://api.github.com/repos/manthanjgodhasara/Smile-Face/pulls \
-      #     -d '{"title":"Adding sample.txt file","body":"Added a file. Please accept","head":"new-file-branch","base":"master"}'
-      - name: Loop json file
+      - name: Loop over json file
         run: |
           JSON_CONTENT=$(cat repos.json)
           names=$(echo "$JSON_CONTENT" | jq -r '.[].repo')
@@ -43,15 +24,15 @@ jobs:
           cd ../../
 
           for repo_name in $names; do
-
+          
           echo $repo_name
           git clone https://manthanjgodhasara:${{ secrets.ACCESS_TOKEN }}@github.com/manthanjgodhasara/$repo_name.git
           cp ./Clone_Repo_Workflow/Clone_Repo_Workflow/sample.txt ./$repo_name
           cd ./$repo_name
-          git checkout -b "new-file-branch3"
+          git checkout -b "new-file-branch4"
           git add .
           git commit -m "Added files"
-          git push --set-upstream origin new-file-branch3
+          git push --set-upstream origin new-file-branch4
 
           curl -L \
           -X POST \
@@ -59,7 +40,7 @@ jobs:
           -H "Authorization: Bearer ${{secrets.ACCESS_TOKEN}}" \
           -H "X-GitHub-Api-Version: 2022-11-28" \
           https://api.github.com/repos/manthanjgodhasara/$repo_name/pulls \
-          -d '{"title":"Adding sample.txt file","body":"Added a file. Please accept","head":"new-file-branch3","base":"main"}'
+          -d '{"title":"Adding sample.txt file","body":"Added a file. Please accept","head":"new-file-branch4","base":"main"}' 
           
           cd ..
           done
