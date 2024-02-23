@@ -43,8 +43,14 @@ jobs:
         run: sudo apt-get update && sudo apt-get install jq -y
       - name: Loop json file
         run: |
-          json=$(repos.json)
-          for row in $(echo "${json}" | jq -c '.[]'); do
-            value=$(echo "${row}" | jq -r '.field_name')
-            echo "Field value: ${value}"
+          JSON_CONTENT=$(cat repos.json)
+          
+          # Parse JSON content and iterate over it using jq
+          for item in $(echo "${JSON_CONTENT}" | jq -r '.[] | @base64'); do
+            _jq() {
+              echo ${item} | base64 --decode | jq -r ${1}
+            }
+            
+            # Extract data from JSON object and perform task
+            # Example: echo "Name: $(_jq '.name')"
           done
