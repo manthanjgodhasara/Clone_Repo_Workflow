@@ -22,7 +22,8 @@ jobs:
       - name: Loop over json file
         run: |
           JSON_CONTENT=$(cat repos.json)
-          names=$(echo "$JSON_CONTENT" | jq -r '.[${{github.event.inputs.repo-name}}][] | .repo')
+          # names=$(echo "$JSON_CONTENT" | jq -r '.[${{github.event.inputs.repo-name}}][] | .repo')
+          names=$(echo "$JSON_CONTENT" | jq -r '.["api-repos"][] | .repo')
           # IFS=$'\n'
 
           cd ../../
