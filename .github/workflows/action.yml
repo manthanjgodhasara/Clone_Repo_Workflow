@@ -4,6 +4,10 @@ on:
   push:
     branches: main
   workflow_dispatch:
+    inputs:
+      repo-name:
+        description: "ui-repos/api-repos"
+        default: ui-repos
 
 jobs:
   Clone_GitHub_Repo:
@@ -18,7 +22,7 @@ jobs:
       - name: Loop over json file
         run: |
           JSON_CONTENT=$(cat repos.json)
-          names=$(echo "$JSON_CONTENT" | jq -r '.["ui-repos"][] | .repo')
+          names=$(echo "$JSON_CONTENT" | jq -r '.["${{github.event.inputs.repo-name}}"][] | .repo')
           # IFS=$'\n'
 
           cd ../../
