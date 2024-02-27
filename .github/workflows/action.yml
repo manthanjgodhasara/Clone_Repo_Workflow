@@ -19,7 +19,7 @@ jobs:
         run: |
           JSON_CONTENT=$(cat repos.json)
           names=$(echo "$JSON_CONTENT" | jq -r '.["ui-repos"][] | .repo')
-          IFS=$'\n'
+          # IFS=$'\n'
 
           cd ../../
 
@@ -29,10 +29,10 @@ jobs:
           # git clone https://manthanjgodhasara:${{ secrets.ACCESS_TOKEN }}@github.com/manthanjgodhasara/$repo_name.git
           # cp ./Clone_Repo_Workflow/Clone_Repo_Workflow/sample.txt ./$repo_name
           # cd ./$repo_name
-          # git checkout -b "new-file-branch5"
+          # git checkout -b "new-file-branch1"
           # git add .
           # git commit -m "Added files"
-          # git push --set-upstream origin new-file-branch5
+          # git push --set-upstream origin new-file-branch1
 
           # curl -L \
           # -X POST \
