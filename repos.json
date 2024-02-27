@@ -1,11 +1,18 @@
-[
-  {
-    "repo": "test_repo1"
-  },
-  {
-    "repo": "test_repo2"
-  },
-  {
-    "repo": "test_repo3"
-  }
-]
+{
+  "ui-repos" : [
+    {
+      "repo": "ui_repo1"
+    },
+    {
+      "repo": "ui_repo2"
+    }
+  ],
+  "api-repos" : [
+    {
+      "repo": "api_repo1"
+    },
+    {
+      "repo": "api_repo2"
+    }
+  ]
+}
