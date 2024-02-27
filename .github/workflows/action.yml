@@ -1,13 +1,13 @@
 name: Clone Repos, push a file and create a PR
 
 on: 
-  push:
-    branches: main
+  # push:
+  #   branches: main
   workflow_dispatch:
     inputs:
       repo-name:
         description: "ui-repos/api-repos"
-        default: "ui-repos"
+        # default: "ui-repos"
 
 jobs:
   Clone_GitHub_Repo:
@@ -31,21 +31,21 @@ jobs:
           for repo_name in $names; do
           
           echo $repo_name
-          # git clone https://manthanjgodhasara:${{ secrets.ACCESS_TOKEN }}@github.com/manthanjgodhasara/$repo_name.git
-          # cp ./Clone_Repo_Workflow/Clone_Repo_Workflow/sample.txt ./$repo_name
-          # cd ./$repo_name
-          # git checkout -b "new-file-branch1"
-          # git add .
-          # git commit -m "Added files"
-          # git push --set-upstream origin new-file-branch1
+          git clone https://manthanjgodhasara:${{ secrets.ACCESS_TOKEN }}@github.com/manthanjgodhasara/$repo_name.git
+          cp ./Clone_Repo_Workflow/Clone_Repo_Workflow/sample.txt ./$repo_name
+          cd ./$repo_name
+          git checkout -b "new-file-branch1"
+          git add .
+          git commit -m "Added files"
+          git push --set-upstream origin new-file-branch1
 
-          # curl -L \
-          # -X POST \
-          # -H "Accept: application/vnd.github+json" \
-          # -H "Authorization: Bearer ${{secrets.ACCESS_TOKEN}}" \
-          # -H "X-GitHub-Api-Version: 2022-11-28" \
-          # https://api.github.com/repos/manthanjgodhasara/$repo_name/pulls \
-          # -d '{"title":"Adding sample.txt file","body":"Added a file. Please accept","head":"new-file-branch4","base":"main"}' 
+          curl -L \
+          -X POST \
+          -H "Accept: application/vnd.github+json" \
+          -H "Authorization: Bearer ${{secrets.ACCESS_TOKEN}}" \
+          -H "X-GitHub-Api-Version: 2022-11-28" \
+          https://api.github.com/repos/manthanjgodhasara/$repo_name/pulls \
+          -d '{"title":"Adding sample.txt file","body":"Added a file. Please accept","head":"new-file-branch4","base":"main"}' 
           
-          # cd ..
+          cd ..
           done
