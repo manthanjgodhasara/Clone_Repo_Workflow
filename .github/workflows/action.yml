@@ -13,22 +13,24 @@ jobs:
   Clone_GitHub_Repo:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - name: Checkout current repo
-        uses: actions/checkout@v4
+        run : cd $GITHUB_WORKSPACE
       - name: Setup Git
         run: |
           git config --global user.email "manthanjgodhasara160901@gmail.com"
           git config --global user.name "manthanjgodhasara"
       - name: Loop over json file
         run: |
+          pwd
+          ls
           JSON_CONTENT=$(cat repos.json)
           names=$(echo "$JSON_CONTENT" | jq -r '.["${{github.event.inputs.repo-name}}"][] | .repo')
           # names=$(echo "$JSON_CONTENT" | jq -r '.["api-repos"][] | .repo')
           # IFS=$'\n'
 
-          cd $GITHUB_WORKSPACE
-          pwd
-          ls
+          
+          
 
           # for repo_name in $names; do
           
