@@ -1,18 +1,4 @@
 {
-  "ui-repos" : [
-    {
-      "repo": "ui_repo1"
-    },
-    {
-      "repo": "ui_repo2"
-    }
-  ],
-  "api-repos" : [
-    {
-      "repo": "api_repo1"
-    },
-    {
-      "repo": "api_repo2"
-    }
-  ]
+  "ui-repos" : ["ui_repo1", "ui_repo2"],
+  "api-repos" : ["api_repo1","api_repo2"]
 }
