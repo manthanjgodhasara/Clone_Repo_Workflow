@@ -8,9 +8,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
       - name: Get last commit date from another repo
         id: last_commit_date
         uses: actions/github-script@v6
