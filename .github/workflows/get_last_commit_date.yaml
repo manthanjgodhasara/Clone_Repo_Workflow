@@ -41,12 +41,12 @@ jobs:
             
             const lastCommitDate = latestCommitDate.toISOString();
             const sixMonthsAgo = new Date();
-            sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 9);
+            sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 10);
             if (latestCommitDate < sixMonthsAgo) {
               console.log(`Last commit date: ${lastCommitDate}`);
               core.setOutput('last_commit_date', lastCommitDate);
             }else{
-              console.log(`Last commit was made less than a 9 months ago`);
+              console.log(`Last commit was made less than a 10 months ago`);
             }
 
       # - name: Output last commit date
