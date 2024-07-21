@@ -22,6 +22,7 @@ jobs:
           github-token: ${{ secrets.ACCESS_TOKEN }}
           script: |
             const reposJson = JSON.parse(`"${{ steps.read_json.outputs.repos }}"`);
+            console.log('Parsed JSON:', reposJson);
             const uiRepos = reposJson["ui-repos"];
             console.log(uiRepos);
             const sixMonthsAgo = new Date();
