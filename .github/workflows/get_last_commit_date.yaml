@@ -1,4 +1,4 @@
-name: Get Last Commit Date
+name: Get Last Commit Date from Another Repo
 
 on:
   workflow_dispatch:
@@ -8,25 +8,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: Install GitHub CLI
-      run: |
-        sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
-        sudo apt-add-repository https://cli.github.com/packages
-        sudo apt update
-        sudo apt install gh -y
+      - name: Get last commit date from another repo
+        id: last_commit_date
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.ACCESS_TOKEN }}
+          script: |
+            const owner = 'manthanjgodhasara';
+            const repo = 'Auction-Hub';
+            const commits = await github.rest.repos.listCommits({
+              owner: owner,
+              repo: repo,
+              per_page: 1,
+            });
+            const lastCommitDate = commits.data[0].commit.author.date;
+            core.setOutput('last_commit_date', lastCommitDate);
+            console.log(`Last commit date: ${lastCommitDate}`);
 
-    - name: Authenticate with GitHub CLI
-      env:
-        GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-      run: gh auth login --with-token <<< "$ACCESS_TOKEN"
-
-    - name: Get last commit date
-      id: last_commit_date
-      run: |
-        last_commit_date=$(gh api repos/Smile-Face/commits --jq '.[0].commit.author.date')
-        echo "Last commit date: $last_commit_date"
-    #     echo "::set-output name=last_commit_date::$last_commit_date"
-
-    # - name: Output last commit date
-    #   run: echo "The last commit date is: ${{ steps.last_commit_date.outputs.last_commit_date }}"
+      - name: Output last commit date
+        run: echo "The last commit date is:${{ steps.last_commit_date.outputs.last_commit_date }}"
