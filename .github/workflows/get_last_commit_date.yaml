@@ -14,8 +14,8 @@ jobs:
         with:
           github-token: ${{ secrets.ACCESS_TOKEN }}
           script: |
-            const owner = 'manthanjgodhasara';
-            const repo = 'BondAppFrontend';
+            const owner = 'mevijays';
+            const repo = 'training-gcp';
             
             // Get all branches
             const branches = await github.rest.repos.listBranches({
