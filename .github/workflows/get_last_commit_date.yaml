@@ -10,10 +10,12 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Set repos.json content to environment variable
+      - name: Read repos.json file
         id: set_env
         run: |
-          echo "REPOS_JSON=$(cat repos.json)" >> $GITHUB_ENV
+          JSON_CONTENT=$(cat repos.json)
+          names=$(echo "$JSON_CONTENT" | jq -r '.["ui-repos"][] | .repo')
+          echo "repos:${names}" >> REPOS_JSON
 
       - name: Debug repos.json content
         run: |
