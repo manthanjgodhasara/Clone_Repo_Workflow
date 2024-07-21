@@ -40,8 +40,14 @@ jobs:
             }
             
             const lastCommitDate = latestCommitDate.toISOString();
-            core.setOutput('last_commit_date', lastCommitDate);
-            console.log(`Last commit date: ${lastCommitDate}`);
+            const sixMonthsAgo = new Date();
+            sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 12);
+            if (latestCommitDate < sixMonthsAgo) {
+              console.log(`Last commit date: ${lastCommitDate}`);
+              core.setOutput('last_commit_date', lastCommitDate);
+            }else{
+              console.log(`Last commit was made less than a year ago`);
+            }
 
-      - name: Output last commit date
-        run: echo "The last commit date is:${{ steps.last_commit_date.outputs.last_commit_date }}"
+      # - name: Output last commit date
+      #   run: echo "The last commit date is:${{ steps.last_commit_date.outputs.last_commit_date }}"
