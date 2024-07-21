@@ -23,6 +23,7 @@ jobs:
           script: |
             const reposJson = JSON.parse(`"${{ steps.read_json.outputs.repos }}"`);
             const uiRepos = reposJson["ui-repos"];
+            console.log(uiRepos);
             const sixMonthsAgo = new Date();
             sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
 
