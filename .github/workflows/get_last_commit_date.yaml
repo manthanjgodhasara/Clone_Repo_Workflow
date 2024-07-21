@@ -1,9 +1,6 @@
 name: Get Last Commit Date
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
 
 jobs:
@@ -11,8 +8,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
 
     - name: Install GitHub CLI
       run: |
@@ -29,9 +24,9 @@ jobs:
     - name: Get last commit date
       id: last_commit_date
       run: |
-        last_commit_date=$(gh api repos/${{ github.repository }}/commits --jq '.[0].commit.author.date')
+        last_commit_date=$(gh api repos/Smile-Face/commits --jq '.[0].commit.author.date')
         echo "Last commit date: $last_commit_date"
-        echo "::set-output name=last_commit_date::$last_commit_date"
+    #     echo "::set-output name=last_commit_date::$last_commit_date"
 
-    - name: Output last commit date
-      run: echo "The last commit date is: ${{ steps.last_commit_date.outputs.last_commit_date }}"
+    # - name: Output last commit date
+    #   run: echo "The last commit date is: ${{ steps.last_commit_date.outputs.last_commit_date }}"
