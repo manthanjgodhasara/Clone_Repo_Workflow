@@ -10,10 +10,14 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Read repos.json
-        id: read_json
+      - name: Set repos.json content to environment variable
+        id: set_env
         run: |
-          echo "::set-output name=repos::$(cat repos.json)"
+          echo "REPOS_JSON=$(cat repos.json)" >> $GITHUB_ENV
+
+      - name: Debug repos.json content
+        run: |
+          echo "Repos JSON content: $REPOS_JSON"
 
       - name: Get last commit date from multiple repos
         id: last_commit_dates
