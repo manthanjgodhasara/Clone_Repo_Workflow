@@ -15,7 +15,7 @@ jobs:
         run: |
           JSON_CONTENT=$(cat repos.json)
           names=$(echo "$JSON_CONTENT" | jq -r '.["ui-repos"][]')
-          echo "repos:${names}" >> REPOS_JSON
+          echo "repos:${names}" >> $REPOS_JSON
 
       - name: Debug repos.json content
         run: |
