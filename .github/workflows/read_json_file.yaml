@@ -1,0 +1,38 @@
+name: Read JSON File
+
+on:
+  workflow-dispatch:
+
+jobs:
+  read-json:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Read and parse JSON file
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const fs = require('fs');
+            const path = './repos.json';  // Replace with your file path
+
+            try {
+              const data = fs.readFileSync(path, 'utf8');
+              const json = JSON.parse(data);
+              
+              // Accessing data in the JSON file
+              console.log('UI Repos:', json['ui-repos']);
+              console.log('API Repos:', json['api-repos']);
+
+              // Setting outputs or environment variables if needed
+              core.setOutput('ui-repos', JSON.stringify(json['ui-repos']));
+              core.setOutput('api-repos', JSON.stringify(json['api-repos']));
+            } catch (err) {
+              core.setFailed(`Failed to read or parse JSON file: ${err.message}`);
+            }
+
+      - name: Use parsed JSON data
+        run: |
+          echo "UI Repos: ${{ steps.read-json.outputs.ui-repos }}"
+          echo "API Repos: ${{ steps.read-json.outputs.api-repos }}"
