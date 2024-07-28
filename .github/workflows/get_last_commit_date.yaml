@@ -1,4 +1,4 @@
-name: Get Last Commit Date from Another Repo
+name: Get last commit date from repos
 
 on:
   workflow_dispatch:
