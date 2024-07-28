@@ -10,27 +10,24 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Read repos.json file
-        id: set_env
-        run: |
-          JSON_CONTENT=$(cat repos.json)
-          names=$(echo "$JSON_CONTENT" | jq -r '.["ui-repos"][]')
-          echo "repos:${names}" >> $REPOS_JSON
-
-      - name: Debug repos.json content
-        run: |
-          echo "Repos JSON content: $REPOS_JSON"
-
       - name: Get last commit date from multiple repos
         id: last_commit_dates
         uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.ACCESS_TOKEN }}
           script: |
-            const reposJson = JSON.parse(`"${{ steps.read_json.outputs.repos }}"`);
-            console.log('Parsed JSON:', reposJson);
-            const uiRepos = reposJson["ui-repos"];
-            console.log(uiRepos);
+            const fs = require('fs');
+            const path = './repos.json';  // Replace with your file path
+
+            const data = fs.readFileSync(path, 'utf8');
+            const json = JSON.parse(data);
+            
+            // Accessing data in the JSON file
+            const ui_repos = json['ui-repos']
+            const api_repos = json['api-repos']
+            console.log('UI Repos:', ui_repos);
+            console.log('API Repos:', api_repos);
+
             const sixMonthsAgo = new Date();
             sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
 
