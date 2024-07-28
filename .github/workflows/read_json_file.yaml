@@ -1,7 +1,7 @@
 name: Read JSON File
 
 on:
-  workflow-dispatch:
+  workflow_dispatch:
 
 jobs:
   read-json:
