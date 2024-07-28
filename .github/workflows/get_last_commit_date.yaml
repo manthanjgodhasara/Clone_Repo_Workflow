@@ -13,23 +13,21 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Get last commit date from multiple repos
+      - name: Get last commit date from repos
         id: last_commit_dates
         uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.ACCESS_TOKEN }}
           script: |
             const fs = require('fs');
-            const path = './repos.json';  // Replace with your file path
-
+            const path = './repos.json';
+            
             const data = fs.readFileSync(path, 'utf8');
             const json = JSON.parse(data);
             
             // Accessing data in the JSON file
-            const ui_repos = json['ui-repos']
-            const api_repos = json['api-repos']
-            console.log('UI Repos:', ui_repos);
-            console.log('API Repos:', api_repos);
+            const repos = json["${{github.event.inputs.repo-name}}"]
+            console.log('Repos:', repos);
 
             const sixMonthsAgo = new Date();
             sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
