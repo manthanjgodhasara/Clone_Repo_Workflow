@@ -32,7 +32,7 @@ jobs:
             const sixMonthsAgo = new Date();
             sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
 
-            for (const repo of ui_repos) {
+            for (const repo of repos) {
               const owner = 'manthanjgodhasara';
               const repoName = repo;
 
