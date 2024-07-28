@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       repo-name:
-      description: "ui-repos/api-repos"
+        description: "ui-repos/api-repos"
 
 jobs:
   get-last-commit-date:
