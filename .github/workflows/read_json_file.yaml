@@ -22,7 +22,7 @@ jobs:
               const json = JSON.parse(data);
               
               // Accessing data in the JSON file
-              console.log('UI Repos:', json['ui-repos']);
+              console.log('UI Repos:', json['ui-repos'][1]);
               console.log('API Repos:', json['api-repos']);
 
               // Setting outputs or environment variables if needed
