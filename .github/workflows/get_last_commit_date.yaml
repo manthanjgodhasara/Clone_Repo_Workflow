@@ -61,9 +61,9 @@ jobs:
               const lastCommitDate = latestCommitDate.toISOString();
 
               if (latestCommitDate < sixMonthsAgo) {
-                console.log(`Repo: ${repoName} - Last commit date: ${lastCommitDate}`);
+                console.log(`${repoName} - Last commit date: ${lastCommitDate}`);
               } else {
-                console.log(`Repo: ${repoName} - The last commit was made within the last six months.`);
+                console.log(`${repoName} - The last commit was made within the last six months.`);
               }
             }
 
