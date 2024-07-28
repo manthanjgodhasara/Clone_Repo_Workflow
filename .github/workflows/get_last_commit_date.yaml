@@ -66,6 +66,3 @@ jobs:
                 console.log(`${repoName} - The last commit was made within the last six months.`);
               }
             }
-
-      # - name: Output last commit date
-      #   run: echo "The last commit date is:${{ steps.last_commit_date.outputs.last_commit_date }}"
