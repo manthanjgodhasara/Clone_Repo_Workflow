@@ -1,4 +1,4 @@
-name: "Veracode Scan - $GITHUB_RUN_NUMBER"
+name: "Veracode Scan - ${{ github.event.workflow_run.run_number }}"
 
 on:
   workflow_dispatch:
