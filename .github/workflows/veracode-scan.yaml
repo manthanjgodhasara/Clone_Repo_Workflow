@@ -7,4 +7,14 @@ jobs:
   veracode_scan:
     runs-on:
       ubuntu-latest
-  
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Get Workflow Run ID based on name
+        run: |
+          WORKFLOW_RUNS=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            "https://api.github.com/repos/manthanjgodhasara/Clone_Repo_Workflow/actions/workflows/get_last_commit_date.yaml/runs")
+
+		 			echo "Workflow runs: $WORKFLOW_RUNS"
