@@ -1,10 +1,10 @@
 name: Veracode Scan
 
-on: 
+on:
   workflow_dispatch:
 
 jobs:
-  veracode_scan:
+  veracode-scan:
     runs-on:
       ubuntu-latest
 
