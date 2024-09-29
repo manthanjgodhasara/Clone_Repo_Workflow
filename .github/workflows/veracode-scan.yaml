@@ -16,4 +16,5 @@ jobs:
         run: |
           # Fetch workflow runs for the specific workflow
           WORKFLOW_RUNS=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            "https://api.github.com/repos/${{ env.repo_owner }}/${{ env.repo_name }}/actions/workflows/${{ env.workflow_file }}/runs")
+            "https://api.github.com/repos/manthanjgodhasara/Clone_Repo_Workflow/actions/workflows/get-last-commit-date.yaml/runs")
+          echo "Workflow runs: $WORKFLOW_RUNS"
