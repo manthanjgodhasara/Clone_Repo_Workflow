@@ -1,4 +1,4 @@
-name: Veracode Scan
+name: "Veracode Scan - $GITHUB_RUN_NUMBER"
 
 on:
   workflow_dispatch:
