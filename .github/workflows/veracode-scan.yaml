@@ -4,16 +4,16 @@ on:
   workflow_dispatch:
 
 jobs:
-  veracode-scan:
-    runs-on:
-      ubuntu-latest
+  fetch-artifacts:
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Get Workflow Run ID based on name
+        id: get_workflow_run
         run: |
+          # Fetch workflow runs for the specific workflow
           WORKFLOW_RUNS=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            "https://api.github.com/repos/manthanjgodhasara/Clone_Repo_Workflow/actions/workflows/get_last_commit_date.yaml/runs")
-					echo "Workflow runs: $WORKFLOW_RUNS"
+            "https://api.github.com/repos/${{ env.repo_owner }}/${{ env.repo_name }}/actions/workflows/${{ env.workflow_file }}/runs")
