@@ -1,0 +1,22 @@
+name: Release Workflow
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  release-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Get the branch from the release event
+        run: |
+          echo "GITHUB_REF: $GITHUB_REF"
+          echo "GITHUB_BASE_REF: $GITHUB_BASE_REF"
+
+      - name: Extract branch name from the release
+        run: |
+          branch_name=${GITHUB_REF#refs/heads/}
+          echo "Branch name: $branch_name"
